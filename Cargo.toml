@@ -1,0 +1,10 @@
+[package]
+name = "libatasmart-sys"
+version = "0.1.0"
+authors = ["Chris Holcombe <xfactor973@gmail.com>"]
+description = "Rust bindings for the libatasmart library"
+license = "MIT"
+repository = "https://github.com/cholcombe973/libatasmart-sys"
+
+[dependencies]
+libc = "*"
