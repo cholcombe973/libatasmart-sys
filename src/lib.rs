@@ -129,7 +129,7 @@ pub enum SkSmartOverall  {
     SK_SMART_OVERALL_MAX
 }
 
-#[link(name = "atasmart4")]
+#[link(name = "atasmart")]
 extern "C" {
     pub fn sk_smart_self_test_execution_status_to_string(status: SkSmartSelfTestExecutionStatus) -> *const ::libc::c_char;
     pub fn sk_smart_offline_data_collection_status_to_string(status: SkSmartOfflineDataCollectionStatus) -> *const ::libc::c_char;

@@ -1,6 +1,7 @@
 addons:
   apt:
     packages:
+      - libatasmart-dev
       - libatasmart4
 language: rust
 rust:
