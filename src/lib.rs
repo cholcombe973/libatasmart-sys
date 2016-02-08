@@ -110,7 +110,7 @@ pub struct SkSmartAttributeParsedData {
     pub current_value: uint8_t, 
     pub worst_value: uint8_t,
     pub pretty_value: uint64_t,
-    pub raw: uint8_t,
+    pub raw: [uint8_t; 6],
 }
 
 pub enum SkDisk{
