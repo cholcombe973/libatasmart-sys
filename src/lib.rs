@@ -150,7 +150,7 @@ extern "C" {
     pub fn sk_disk_set_blob(d: *mut SkDisk, blob: *const ::libc::c_void, size: size_t) -> ::libc::c_int;
     pub fn sk_disk_smart_parse(d: *mut *mut SkDisk, data: *const SkSmartParsedData) -> ::libc::c_int;
 
-    pub fn sk_disk_smart_parse_attributes(d: *mut SkDisk, cb: extern fn(d: *mut SkDisk, data: *mut SkSmartAttributeParsedData, userdata: *mut ::libc::c_void), userdata: *mut ::libc::c_void) -> ::libc::c_int;
+    pub fn sk_disk_smart_parse_attributes(d: *mut SkDisk, cb: extern fn(d: *mut SkDisk, data: *const SkSmartAttributeParsedData, userdata: *mut ::libc::c_void), userdata: *mut ::libc::c_void) -> ::libc::c_int;
     
     pub fn sk_disk_smart_self_test(d: *mut SkDisk, test: SkSmartSelfTest) -> ::libc::c_int;
     pub fn sk_disk_smart_get_power_on(d: *mut SkDisk, mseconds: *mut uint64_t) -> ::libc::c_int;
