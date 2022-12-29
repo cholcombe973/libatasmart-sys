@@ -142,7 +142,7 @@ extern "C" {
     pub fn sk_disk_get_size(d: *mut SkDisk, bytes: *mut uint64_t) -> ::libc::c_int;
     pub fn sk_disk_check_sleep_mode(d: *mut SkDisk, awake: *mut SkBool) -> ::libc::c_int;
     pub fn sk_disk_identify_is_available(d: *mut SkDisk, available: *mut SkBool) -> ::libc::c_int;
-    pub fn sk_disk_identify_parse(d: *mut *mut SkDisk, data: *const SkIdentifyParsedData) -> ::libc::c_int;
+    pub fn sk_disk_identify_parse(d: *mut SkDisk, data: *const *const SkIdentifyParsedData) -> ::libc::c_int;
     pub fn sk_disk_smart_is_available(d: *mut SkDisk, available: *mut SkBool) -> ::libc::c_int;
     pub fn sk_disk_smart_status(d: *mut SkDisk, good: *mut SkBool) -> ::libc::c_int;
     pub fn sk_disk_smart_read_data(d: *mut SkDisk) -> ::libc::c_int;
