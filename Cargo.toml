@@ -1,6 +1,6 @@
 [package]
 name = "libatasmart-sys"
-version = "0.1.2"
+version = "0.2.0"
 authors = ["Chris Holcombe <xfactor973@gmail.com>"]
 description = "Rust bindings for the libatasmart library"
 license = "MIT"
