@@ -1,6 +1,8 @@
 #![allow(non_camel_case_types)]
 extern crate libc;
+extern crate c2rust_bitfields;
 use self::libc::{c_char, size_t};
+use c2rust_bitfields::BitfieldStruct;
 
 pub type SkBool = ::libc::c_uint;
 
@@ -90,24 +92,25 @@ pub enum SkSmartAttributeUnit {
 
 
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Debug, BitfieldStruct)]
 pub struct SkSmartAttributeParsedData {
     pub id: u8,
-    pub name: *const ::libc::c_char,
+    pub name: *const c_char,
     pub pretty_unit: SkSmartAttributeUnit,
-    pub flags: u16 ,
+    pub flags: u16,
     pub threshold: u8,
-    pub threshold_valid: SkBool,
-    pub online: SkBool,
-    pub prefailure: SkBool,
-    pub good_now: SkBool, 
-    pub good_now_valid: SkBool,
-    pub good_in_the_past: SkBool,
-    pub good_in_the_past_valid: SkBool,
-    pub current_value_valid: SkBool,
-    pub worst_value_valid: SkBool,
-    pub warn: SkBool,
-    pub current_value: u8, 
+    #[bitfield(name="threshold_valid", ty="SkBool", bits="0..=0")]
+    #[bitfield(name="online", ty="SkBool", bits="1..=1")]
+    #[bitfield(name="prefailure", ty="SkBool", bits="2..=2")]
+    #[bitfield(name="good_now", ty="SkBool", bits="3..=3")]
+    #[bitfield(name="good_now_valid", ty="SkBool", bits="4..=4")]
+    #[bitfield(name="good_in_the_past", ty="SkBool", bits="5..=5")]
+    #[bitfield(name="good_in_the_past_valid", ty="SkBool", bits="6..=6")]
+    #[bitfield(name="current_value_valid", ty="SkBool", bits="7..=7")]
+    #[bitfield(name="worst_value_valid", ty="SkBool", bits="8..=8")]
+    #[bitfield(name="warn", ty="SkBool", bits="9..=9")]
+    pub threshold_valid_online_prefailure_good_now_good_now_valid_good_in_the_past_good_in_the_past_valid_current_value_valid_worst_value_valid_warn: [u8; 2],
+    pub current_value: u8,
     pub worst_value: u8,
     pub pretty_value: u64,
     pub raw: [u8; 6],
