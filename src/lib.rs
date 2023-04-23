@@ -1,8 +1,7 @@
 #![allow(non_camel_case_types)]
 extern crate libc;
-use self::libc::{c_char, size_t};
-
 extern crate c2rust_bitfields;
+use self::libc::{c_char, size_t};
 use c2rust_bitfields::BitfieldStruct;
 
 pub type SkBool = ::libc::c_uint;
@@ -97,7 +96,7 @@ pub enum SkSmartAttributeUnit {
 pub struct SkSmartAttributeParsedData {
     pub id: u8,
     pub name: *const c_char,
-    pub pretty_unit: SkSmartAttributeUnit, /* for pretty_value */
+    pub pretty_unit: SkSmartAttributeUnit,
     pub flags: u16,
     pub threshold: u8,
     #[bitfield(name="threshold_valid", ty="SkBool", bits="0..=0")]
