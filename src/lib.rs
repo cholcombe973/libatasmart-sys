@@ -76,7 +76,7 @@ pub struct SkSmartParsedData {
 }
 
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub enum SkSmartAttributeUnit {
     SK_SMART_ATTRIBUTE_UNIT_UNKNOWN,
     SK_SMART_ATTRIBUTE_UNIT_NONE,
@@ -121,7 +121,7 @@ pub enum SkDisk{
 }
 
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub enum SkSmartOverall  {
     SK_SMART_OVERALL_GOOD,
     SK_SMART_OVERALL_BAD_ATTRIBUTE_IN_THE_PAST,  /* At least one pre-fail attribute exceeded its threshold in the past */
