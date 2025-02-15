@@ -8,7 +8,7 @@ pub type SkBool = ::libc::c_uint;
 
 /* ATA SMART test type (ATA8 7.52.5.2) */
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub enum SkSmartSelfTest {
     SK_SMART_SELF_TEST_SHORT = 1,
     SK_SMART_SELF_TEST_EXTENDED = 2,
@@ -17,6 +17,7 @@ pub enum SkSmartSelfTest {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, Debug)]
 pub struct SkIdentifyParsedData {
     pub serial: [c_char; 21],
     pub firmware: [c_char; 9],
@@ -24,7 +25,7 @@ pub struct SkIdentifyParsedData {
 }
 
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Clone, Copy,Debug)]
 pub enum SkSmartOfflineDataCollectionStatus {
     SK_SMART_OFFLINE_DATA_COLLECTION_STATUS_NEVER,
     SK_SMART_OFFLINE_DATA_COLLECTION_STATUS_SUCCESS,
@@ -39,7 +40,7 @@ pub enum SkSmartOfflineDataCollectionStatus {
 
 
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub enum SkSmartSelfTestExecutionStatus {
     SK_SMART_SELF_TEST_EXECUTION_STATUS_SUCCESS_OR_NEVER = 0,
     SK_SMART_SELF_TEST_EXECUTION_STATUS_ABORTED = 1,
@@ -56,7 +57,7 @@ pub enum SkSmartSelfTestExecutionStatus {
 
 
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub struct SkSmartParsedData {
     /* Volatile data */
     pub offline_data_collection_status: SkSmartOfflineDataCollectionStatus ,
@@ -76,7 +77,7 @@ pub struct SkSmartParsedData {
 }
 
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub enum SkSmartAttributeUnit {
     SK_SMART_ATTRIBUTE_UNIT_UNKNOWN,
     SK_SMART_ATTRIBUTE_UNIT_NONE,
@@ -92,7 +93,7 @@ pub enum SkSmartAttributeUnit {
 
 
 #[repr(C)]
-#[derive(Debug, BitfieldStruct)]
+#[derive(Clone, Copy, Debug, BitfieldStruct)]
 pub struct SkSmartAttributeParsedData {
     pub id: u8,
     pub name: *const c_char,
@@ -116,12 +117,13 @@ pub struct SkSmartAttributeParsedData {
     pub raw: [u8; 6],
 }
 
+#[derive(Clone, Copy, Debug)]
 pub enum SkDisk{
 
 }
 
 #[repr(C)]
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug)]
 pub enum SkSmartOverall  {
     SK_SMART_OVERALL_GOOD,
     SK_SMART_OVERALL_BAD_ATTRIBUTE_IN_THE_PAST,  /* At least one pre-fail attribute exceeded its threshold in the past */
